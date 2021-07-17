@@ -1,0 +1,115 @@
+{
+  "version": "12.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "PTStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "PTStack.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/PTStack/podcast-video-bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "podcastvideobucket114B5DC2",
+            "trace": [
+              "new Bucket (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:713:22)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/stack/lib/pt-stack.ts:10:24)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/lambdaRole/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdaRolePolicyEF39DF31",
+            "trace": [
+              "new Policy (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/aws-iam/lib/policy.ts:89:22)",
+              "Import.addToPrincipalPolicy (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/aws-iam/lib/role.ts:91:32)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/stack/lib/pt-stack.ts:31:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:22:24)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/synthesis.ts:166:5",
+              "visit (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/synthesis.ts:231:5)",
+              "visit (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/synthesis.ts:227:5)",
+              "injectMetadataResources (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/synthesis.ts:157:3)",
+              "Object.synthesize (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/stage.ts:94:23)",
+              "process.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/app.ts:64:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ],
+        "/PTStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:31:27)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/synthesis.ts:166:5",
+              "visit (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/synthesis.ts:231:5)",
+              "visit (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/synthesis.ts:227:5)",
+              "injectMetadataResources (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/synthesis.ts:157:3)",
+              "Object.synthesize (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/stage.ts:94:23)",
+              "process.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/core/lib/app.ts:64:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "PTStack"
+    }
+  }
+}

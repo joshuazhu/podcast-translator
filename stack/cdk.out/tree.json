@@ -1,0 +1,147 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Construct",
+          "version": "1.113.0"
+        }
+      },
+      "PTStack": {
+        "id": "PTStack",
+        "path": "PTStack",
+        "children": {
+          "podcast-video-bucket": {
+            "id": "podcast-video-bucket",
+            "path": "PTStack/podcast-video-bucket",
+            "children": {
+              "Notifications": {
+                "id": "Notifications",
+                "path": "PTStack/podcast-video-bucket/Notifications",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.113.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "PTStack/podcast-video-bucket/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "bucketName": "podcast-video-bucket"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-s3.CfnBucket",
+                  "version": "1.113.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-s3.Bucket",
+              "version": "1.113.0"
+            }
+          },
+          "lambdaRole": {
+            "id": "lambdaRole",
+            "path": "PTStack/lambdaRole",
+            "children": {
+              "Policy": {
+                "id": "Policy",
+                "path": "PTStack/lambdaRole/Policy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "PTStack/lambdaRole/Policy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "s3:ListAllMyBuckets",
+                              "Effect": "Allow",
+                              "Resource": "arn:aws:s3:::*"
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "lambdaRolePolicyEF39DF31",
+                        "roles": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "podcast-translator-dev-",
+                                {
+                                  "Ref": "AWS::Region"
+                                },
+                                "-lambdaRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                      "version": "1.113.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.Policy",
+                  "version": "1.113.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Resource",
+              "version": "1.113.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "PTStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "PTStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnResource",
+                  "version": "1.113.0"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "PTStack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnCondition",
+                  "version": "1.113.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.113.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Stack",
+          "version": "1.113.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "@aws-cdk/core.App",
+      "version": "1.113.0"
+    }
+  }
+}

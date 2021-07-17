@@ -1,0 +1,27 @@
+service: podcast-translator
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: go1.x
+  lambdaHashingVersion: 20201221
+
+package:
+  patterns:
+    - '!./**'
+    - ./bin/**
+
+functions:
+  hello:
+    handler: bin/hello
+    events:
+      - httpApi:
+          path: /hello
+          method: get
+  world:
+    handler: bin/world
+    events:
+      - httpApi:
+          path: /world
+          method: get
