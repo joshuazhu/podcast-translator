@@ -15,13 +15,65 @@
         "validateOnSynth": false
       },
       "metadata": {
-        "/PTStack/podcast-video-bucket/Resource": [
+        "/PTStack/podcast-source-audio-bucket/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "podcastvideobucket114B5DC2",
+            "data": "podcastsourceaudiobucket447EBAD3",
             "trace": [
               "new Bucket (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:713:22)",
-              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/stack/lib/pt-stack.ts:10:24)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/stack/lib/pt-stack.ts:12:9)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/podcast-source-transcription-bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "podcastsourcetranscriptionbucket2D78E9C4",
+            "trace": [
+              "new Bucket (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:713:22)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/stack/lib/pt-stack.ts:17:9)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/podcast-proccessed-transcription-bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "podcastproccessedtranscriptionbucket589BA7A7",
+            "trace": [
+              "new Bucket (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:713:22)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/stack/lib/pt-stack.ts:22:9)",
               "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/bin/stack.ts:6:1)",
               "Module._compile (internal/modules/cjs/loader.js:1063:30)",
               "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/index.ts:1056:23)",
@@ -48,7 +100,7 @@
             "trace": [
               "new Policy (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/aws-iam/lib/policy.ts:89:22)",
               "Import.addToPrincipalPolicy (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/@aws-cdk/aws-iam/lib/role.ts:91:32)",
-              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/stack/lib/pt-stack.ts:31:14)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/stack/lib/pt-stack.ts:41:14)",
               "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/stack/bin/stack.ts:6:1)",
               "Module._compile (internal/modules/cjs/loader.js:1063:30)",
               "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/stack/node_modules/ts-node/src/index.ts:1056:23)",

@@ -1,14 +1,36 @@
 {
   "Resources": {
-    "podcastvideobucket114B5DC2": {
+    "podcastsourceaudiobucket447EBAD3": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "podcast-video-bucket"
+        "BucketName": "podcast-source-audio-bucket"
       },
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-        "aws:cdk:path": "PTStack/podcast-video-bucket/Resource"
+        "aws:cdk:path": "PTStack/podcast-source-audio-bucket/Resource"
+      }
+    },
+    "podcastsourcetranscriptionbucket2D78E9C4": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "podcast-source-transcription-bucket"
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "PTStack/podcast-source-transcription-bucket/Resource"
+      }
+    },
+    "podcastproccessedtranscriptionbucket589BA7A7": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "podcast-proccessed-transcription-bucket"
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "PTStack/podcast-proccessed-transcription-bucket/Resource"
       }
     },
     "lambdaRolePolicyEF39DF31": {
@@ -17,7 +39,13 @@
         "PolicyDocument": {
           "Statement": [
             {
-              "Action": "s3:ListAllMyBuckets",
+              "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:PutObject",
+                "s3:PutObjectAcl",
+                "s3:GetObject",
+                "s3:GetObjectVersion"
+              ],
               "Effect": "Allow",
               "Resource": "arn:aws:s3:::*"
             }

@@ -16,13 +16,13 @@
         "id": "PTStack",
         "path": "PTStack",
         "children": {
-          "podcast-video-bucket": {
-            "id": "podcast-video-bucket",
-            "path": "PTStack/podcast-video-bucket",
+          "podcast-source-audio-bucket": {
+            "id": "podcast-source-audio-bucket",
+            "path": "PTStack/podcast-source-audio-bucket",
             "children": {
               "Notifications": {
                 "id": "Notifications",
-                "path": "PTStack/podcast-video-bucket/Notifications",
+                "path": "PTStack/podcast-source-audio-bucket/Notifications",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
                   "version": "1.113.0"
@@ -30,11 +30,75 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "PTStack/podcast-video-bucket/Resource",
+                "path": "PTStack/podcast-source-audio-bucket/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
                   "aws:cdk:cloudformation:props": {
-                    "bucketName": "podcast-video-bucket"
+                    "bucketName": "podcast-source-audio-bucket"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-s3.CfnBucket",
+                  "version": "1.113.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-s3.Bucket",
+              "version": "1.113.0"
+            }
+          },
+          "podcast-source-transcription-bucket": {
+            "id": "podcast-source-transcription-bucket",
+            "path": "PTStack/podcast-source-transcription-bucket",
+            "children": {
+              "Notifications": {
+                "id": "Notifications",
+                "path": "PTStack/podcast-source-transcription-bucket/Notifications",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.113.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "PTStack/podcast-source-transcription-bucket/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "bucketName": "podcast-source-transcription-bucket"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-s3.CfnBucket",
+                  "version": "1.113.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-s3.Bucket",
+              "version": "1.113.0"
+            }
+          },
+          "podcast-proccessed-transcription-bucket": {
+            "id": "podcast-proccessed-transcription-bucket",
+            "path": "PTStack/podcast-proccessed-transcription-bucket",
+            "children": {
+              "Notifications": {
+                "id": "Notifications",
+                "path": "PTStack/podcast-proccessed-transcription-bucket/Notifications",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.113.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "PTStack/podcast-proccessed-transcription-bucket/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "bucketName": "podcast-proccessed-transcription-bucket"
                   }
                 },
                 "constructInfo": {
@@ -65,7 +129,13 @@
                         "policyDocument": {
                           "Statement": [
                             {
-                              "Action": "s3:ListAllMyBuckets",
+                              "Action": [
+                                "s3:ListAllMyBuckets",
+                                "s3:PutObject",
+                                "s3:PutObjectAcl",
+                                "s3:GetObject",
+                                "s3:GetObjectVersion"
+                              ],
                               "Effect": "Allow",
                               "Resource": "arn:aws:s3:::*"
                             }
