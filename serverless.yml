@@ -1,15 +1,20 @@
 service: podcast-translator
 
 frameworkVersion: '2'
+useDotenv: true
 
 # custom:
 #   sourceAudioBucketName: podcast-source-audio-bucket
 #   sourceTranscriptionBucketName: podcast-source-transcription-bucket
+variablesResolutionMode: 20210326
 
 provider:
   name: aws
   runtime: go1.x
   lambdaHashingVersion: 20201221
+
+custom:
+  dbsecrect: ${ssm:/aws/reference/secretsmanager/podcast-translator-dev-db-credentials}
 
 package:
   patterns:
@@ -19,6 +24,11 @@ package:
 functions:
   startTranscribe:
     handler: bin/startTranscribe
+    environment:
+      DB_ENDPOINT: ${ssm:/podcast-translator-dev-db-cluster-endpoint}
+      DB_USERNAME: ${self:custom.dbsecrect.username}
+      DB_PASSWORD: ${self:custom.dbsecrect.password}
+      
     events:
       - s3:
           bucket: podcast-source-audio-bucket
