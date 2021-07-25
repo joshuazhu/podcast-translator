@@ -1,0 +1,1081 @@
+{
+  "version": "12.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "PTStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "PTStack.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/PTStack/podcast-source-audio-bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "podcastsourceaudiobucket447EBAD3",
+            "trace": [
+              "new Bucket (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:713:22)",
+              "PTStack.provisionS3 (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:74:9)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:12:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/podcast-source-transcription-bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "podcastsourcetranscriptionbucket2D78E9C4",
+            "trace": [
+              "new Bucket (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:713:22)",
+              "PTStack.provisionS3 (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:79:9)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:12:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/podcast-proccessed-transcription-bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "podcastproccessedtranscriptionbucket589BA7A7",
+            "trace": [
+              "new Bucket (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-s3/lib/bucket.ts:713:22)",
+              "PTStack.provisionS3 (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:84:9)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:12:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/lambdaRole/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdaRolePolicyEF39DF31",
+            "trace": [
+              "new Policy (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-iam/lib/policy.ts:89:22)",
+              "Import.addToPrincipalPolicy (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-iam/lib/role.ts:91:32)",
+              "PTStack.provisionS3 (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:110:14)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:12:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/DBCredentialsSecret/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DBCredentialsSecretAFB45EA2",
+            "trace": [
+              "new Secret (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-secretsmanager/lib/secret.ts:337:22)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:19:43)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/DBCredentialsArn/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DBCredentialsArn15122902",
+            "trace": [
+              "new StringParameter (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ssm/lib/parameter.ts:268:22)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:31:9)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCABFB6588",
+            "trace": [
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:710:21)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet1Subnet34BE0A7A",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:997:20)",
+              "new PublicSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1153:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:882:32",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet1RouteTableA6C4C92B",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1015:19)",
+              "new PublicSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1153:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:882:32",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet1RouteTableAssociation57D8FE65",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1021:5)",
+              "new PublicSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1153:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:882:32",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet1DefaultRouteDC2E5365",
+            "trace": [
+              "PublicSubnet.addDefaultInternetRoute (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1031:19)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:758:22",
+              "Array.forEach (<anonymous>)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:757:46)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet1EIP0788DED2",
+            "trace": [
+              "PublicSubnet.addNatGateway (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1161:21)",
+              "NatGatewayProvider.configureNat (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/nat.ts:108:27)",
+              "Vpc.createNatGateways (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:834:14)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:764:14)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet1NATGatewayB5C4C09C",
+            "trace": [
+              "PublicSubnet.addNatGateway (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1159:17)",
+              "NatGatewayProvider.configureNat (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/nat.ts:108:27)",
+              "Vpc.createNatGateways (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:834:14)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:764:14)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet2Subnet44007D6B",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:997:20)",
+              "new PublicSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1153:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:882:32",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet2RouteTableE13A68C3",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1015:19)",
+              "new PublicSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1153:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:882:32",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet2RouteTableAssociationFFAB96FA",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1021:5)",
+              "new PublicSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1153:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:882:32",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet2DefaultRoute505C3607",
+            "trace": [
+              "PublicSubnet.addDefaultInternetRoute (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1031:19)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:758:22",
+              "Array.forEach (<anonymous>)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:757:46)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet2/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet2EIPB5551CC9",
+            "trace": [
+              "PublicSubnet.addNatGateway (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1161:21)",
+              "NatGatewayProvider.configureNat (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/nat.ts:108:27)",
+              "Vpc.createNatGateways (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:834:14)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:764:14)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PublicSubnet2/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPublicSubnet2NATGateway006253BD",
+            "trace": [
+              "PublicSubnet.addNatGateway (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1159:17)",
+              "NatGatewayProvider.configureNat (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/nat.ts:108:27)",
+              "Vpc.createNatGateways (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:834:14)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:764:14)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPrivateSubnet1Subnet1FCBF118",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:997:20)",
+              "new PrivateSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1185:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:887:33",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPrivateSubnet1RouteTable04E498B7",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1015:19)",
+              "new PrivateSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1185:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:887:33",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPrivateSubnet1RouteTableAssociation5A175760",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1021:5)",
+              "new PrivateSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1185:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:887:33",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PrivateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPrivateSubnet1DefaultRoute8B0577C4",
+            "trace": [
+              "PrivateSubnet.addRoute (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1063:19)",
+              "NatGatewayProvider.configureSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/nat.ts:125:12)",
+              "NatGatewayProvider.configureNat (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/nat.ts:118:12)",
+              "Vpc.createNatGateways (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:834:14)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:764:14)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPrivateSubnet2SubnetEFDCBB46",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:997:20)",
+              "new PrivateSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1185:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:887:33",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPrivateSubnet2RouteTableA65DF0DA",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1015:19)",
+              "new PrivateSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1185:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:887:33",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPrivateSubnet2RouteTableAssociationEBB8840E",
+            "trace": [
+              "new Subnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1021:5)",
+              "new PrivateSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1185:5)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:887:33",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:864:28)",
+              "Vpc.createSubnets (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:859:12)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:739:10)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/PrivateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCPrivateSubnet2DefaultRoute004D0927",
+            "trace": [
+              "PrivateSubnet.addRoute (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:1063:19)",
+              "NatGatewayProvider.configureSubnet (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/nat.ts:125:12)",
+              "NatGatewayProvider.configureNat (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/nat.ts:118:12)",
+              "Vpc.createNatGateways (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:834:14)",
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:764:14)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCIGW978E55B5",
+            "trace": [
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:746:19)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/AuroraVPC/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuroraVPCVPCGW2CE11C62",
+            "trace": [
+              "new Vpc (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/vpc.ts:752:19)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:36:21)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/${serviceName}-cluster/Subnets/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceNameclusterSubnets6E049CEB",
+            "trace": [
+              "new SubnetGroup (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-rds/lib/subnet-group.ts:48:25)",
+              "new ServerlessCluster (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-rds/lib/serverless-cluster.ts:252:45)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:38:25)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/${serviceName}-cluster/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceNameclusterSecurityGroup39A91843",
+            "trace": [
+              "new SecurityGroup (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ec2/lib/security-group.ts:289:26)",
+              "new ServerlessCluster (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-rds/lib/serverless-cluster.ts:277:7)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:38:25)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/${serviceName}-cluster/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "serviceNamecluster329A5DD7",
+            "trace": [
+              "new ServerlessCluster (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-rds/lib/serverless-cluster.ts:287:21)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:38:25)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/DBResourceArn/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DBResourceArnABC705AC",
+            "trace": [
+              "new StringParameter (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ssm/lib/parameter.ts:268:22)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:58:9)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/DBEndpoint/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DBEndpointBF8E0CEA",
+            "trace": [
+              "new StringParameter (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/aws-ssm/lib/parameter.ts:268:22)",
+              "PTStack.provisionDatabase (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:63:9)",
+              "new PTStack (/Users/joshzhu/Documents/Playground/podcast-translator/infra/lib/pt-stack.ts:13:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/bin/stack.ts:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Module.m._compile (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "main (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (internal/modules/cjs/loader.js:1063:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)",
+              "Module.load (internal/modules/cjs/loader.js:928:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:769:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)",
+              "/Users/joshzhu/.nvm/versions/node/v14.16.0/lib/node_modules/npm/node_modules/libnpx/index.js:268:14"
+            ]
+          }
+        ],
+        "/PTStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:22:24)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:166:5",
+              "visit (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:231:5)",
+              "visit (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:227:5)",
+              "injectMetadataResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:157:3)",
+              "Object.synthesize (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/stage.ts:94:23)",
+              "process.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/app.ts:64:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ],
+        "/PTStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/metadata-resource.ts:31:27)",
+              "/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:166:5",
+              "visit (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:231:5)",
+              "visit (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:227:5)",
+              "injectMetadataResources (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:157:3)",
+              "Object.synthesize (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/private/synthesis.ts:18:3)",
+              "App.synth (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/stage.ts:94:23)",
+              "process.<anonymous> (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/@aws-cdk/core/lib/app.ts:64:45)",
+              "Object.onceWrapper (events.js:422:26)",
+              "process.emit (events.js:315:20)",
+              "process.EventEmitter.emit (domain.js:467:12)",
+              "process.emit (/Users/joshzhu/Documents/Playground/podcast-translator/infra/node_modules/source-map-support/source-map-support.js:495:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "PTStack"
+    }
+  }
+}

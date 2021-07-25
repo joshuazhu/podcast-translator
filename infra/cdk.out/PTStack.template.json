@@ -1,0 +1,912 @@
+{
+  "Resources": {
+    "podcastsourceaudiobucket447EBAD3": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "podcast-source-audio-bucket"
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "PTStack/podcast-source-audio-bucket/Resource"
+      }
+    },
+    "podcastsourcetranscriptionbucket2D78E9C4": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "podcast-source-transcription-bucket"
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "PTStack/podcast-source-transcription-bucket/Resource"
+      }
+    },
+    "podcastproccessedtranscriptionbucket589BA7A7": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "podcast-proccessed-transcription-bucket"
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "PTStack/podcast-proccessed-transcription-bucket/Resource"
+      }
+    },
+    "lambdaRolePolicyEF39DF31": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:PutObject",
+                "s3:PutObjectAcl",
+                "s3:GetObject",
+                "s3:GetObjectVersion",
+                "transcribe:StartTranscriptionJob"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                "arn:aws:s3:::*",
+                "*"
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "lambdaRolePolicyEF39DF31",
+        "Roles": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "podcast-translator-dev-",
+                {
+                  "Ref": "AWS::Region"
+                },
+                "-lambdaRole"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/lambdaRole/Policy/Resource"
+      }
+    },
+    "DBCredentialsSecretAFB45EA2": {
+      "Type": "AWS::SecretsManager::Secret",
+      "Properties": {
+        "GenerateSecretString": {
+          "ExcludePunctuation": true,
+          "GenerateStringKey": "password",
+          "IncludeSpace": false,
+          "SecretStringTemplate": "{\"username\":\"podcast_database\"}"
+        },
+        "Name": "podcast-translator-dev-db-credentials"
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/DBCredentialsSecret/Resource"
+      }
+    },
+    "DBCredentialsArn15122902": {
+      "Type": "AWS::SSM::Parameter",
+      "Properties": {
+        "Type": "String",
+        "Value": {
+          "Ref": "DBCredentialsSecretAFB45EA2"
+        },
+        "Name": "podcast-translator-dev-db-credentials-arn"
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/DBCredentialsArn/Resource"
+      }
+    },
+    "AuroraVPCABFB6588": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/Resource"
+      }
+    },
+    "AuroraVPCPublicSubnet1Subnet34BE0A7A": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/18",
+        "VpcId": {
+          "Ref": "AuroraVPCABFB6588"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet1/Subnet"
+      }
+    },
+    "AuroraVPCPublicSubnet1RouteTableA6C4C92B": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "AuroraVPCABFB6588"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet1/RouteTable"
+      }
+    },
+    "AuroraVPCPublicSubnet1RouteTableAssociation57D8FE65": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AuroraVPCPublicSubnet1RouteTableA6C4C92B"
+        },
+        "SubnetId": {
+          "Ref": "AuroraVPCPublicSubnet1Subnet34BE0A7A"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet1/RouteTableAssociation"
+      }
+    },
+    "AuroraVPCPublicSubnet1DefaultRouteDC2E5365": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AuroraVPCPublicSubnet1RouteTableA6C4C92B"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "AuroraVPCIGW978E55B5"
+        }
+      },
+      "DependsOn": [
+        "AuroraVPCVPCGW2CE11C62"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet1/DefaultRoute"
+      }
+    },
+    "AuroraVPCPublicSubnet1EIP0788DED2": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet1/EIP"
+      }
+    },
+    "AuroraVPCPublicSubnet1NATGatewayB5C4C09C": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "SubnetId": {
+          "Ref": "AuroraVPCPublicSubnet1Subnet34BE0A7A"
+        },
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "AuroraVPCPublicSubnet1EIP0788DED2",
+            "AllocationId"
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet1/NATGateway"
+      }
+    },
+    "AuroraVPCPublicSubnet2Subnet44007D6B": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.64.0/18",
+        "VpcId": {
+          "Ref": "AuroraVPCABFB6588"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet2/Subnet"
+      }
+    },
+    "AuroraVPCPublicSubnet2RouteTableE13A68C3": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "AuroraVPCABFB6588"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet2/RouteTable"
+      }
+    },
+    "AuroraVPCPublicSubnet2RouteTableAssociationFFAB96FA": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AuroraVPCPublicSubnet2RouteTableE13A68C3"
+        },
+        "SubnetId": {
+          "Ref": "AuroraVPCPublicSubnet2Subnet44007D6B"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet2/RouteTableAssociation"
+      }
+    },
+    "AuroraVPCPublicSubnet2DefaultRoute505C3607": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AuroraVPCPublicSubnet2RouteTableE13A68C3"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "AuroraVPCIGW978E55B5"
+        }
+      },
+      "DependsOn": [
+        "AuroraVPCVPCGW2CE11C62"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet2/DefaultRoute"
+      }
+    },
+    "AuroraVPCPublicSubnet2EIPB5551CC9": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet2/EIP"
+      }
+    },
+    "AuroraVPCPublicSubnet2NATGateway006253BD": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "SubnetId": {
+          "Ref": "AuroraVPCPublicSubnet2Subnet44007D6B"
+        },
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "AuroraVPCPublicSubnet2EIPB5551CC9",
+            "AllocationId"
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PublicSubnet2/NATGateway"
+      }
+    },
+    "AuroraVPCPrivateSubnet1Subnet1FCBF118": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.128.0/18",
+        "VpcId": {
+          "Ref": "AuroraVPCABFB6588"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PrivateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PrivateSubnet1/Subnet"
+      }
+    },
+    "AuroraVPCPrivateSubnet1RouteTable04E498B7": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "AuroraVPCABFB6588"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PrivateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PrivateSubnet1/RouteTable"
+      }
+    },
+    "AuroraVPCPrivateSubnet1RouteTableAssociation5A175760": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AuroraVPCPrivateSubnet1RouteTable04E498B7"
+        },
+        "SubnetId": {
+          "Ref": "AuroraVPCPrivateSubnet1Subnet1FCBF118"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PrivateSubnet1/RouteTableAssociation"
+      }
+    },
+    "AuroraVPCPrivateSubnet1DefaultRoute8B0577C4": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AuroraVPCPrivateSubnet1RouteTable04E498B7"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "AuroraVPCPublicSubnet1NATGatewayB5C4C09C"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PrivateSubnet1/DefaultRoute"
+      }
+    },
+    "AuroraVPCPrivateSubnet2SubnetEFDCBB46": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.192.0/18",
+        "VpcId": {
+          "Ref": "AuroraVPCABFB6588"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PrivateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PrivateSubnet2/Subnet"
+      }
+    },
+    "AuroraVPCPrivateSubnet2RouteTableA65DF0DA": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "AuroraVPCABFB6588"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC/PrivateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PrivateSubnet2/RouteTable"
+      }
+    },
+    "AuroraVPCPrivateSubnet2RouteTableAssociationEBB8840E": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AuroraVPCPrivateSubnet2RouteTableA65DF0DA"
+        },
+        "SubnetId": {
+          "Ref": "AuroraVPCPrivateSubnet2SubnetEFDCBB46"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PrivateSubnet2/RouteTableAssociation"
+      }
+    },
+    "AuroraVPCPrivateSubnet2DefaultRoute004D0927": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "AuroraVPCPrivateSubnet2RouteTableA65DF0DA"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "AuroraVPCPublicSubnet2NATGateway006253BD"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/PrivateSubnet2/DefaultRoute"
+      }
+    },
+    "AuroraVPCIGW978E55B5": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "PTStack/AuroraVPC"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/IGW"
+      }
+    },
+    "AuroraVPCVPCGW2CE11C62": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "AuroraVPCABFB6588"
+        },
+        "InternetGatewayId": {
+          "Ref": "AuroraVPCIGW978E55B5"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/AuroraVPC/VPCGW"
+      }
+    },
+    "serviceNameclusterSubnets6E049CEB": {
+      "Type": "AWS::RDS::DBSubnetGroup",
+      "Properties": {
+        "DBSubnetGroupDescription": "Subnets for ${serviceName}-cluster database",
+        "SubnetIds": [
+          {
+            "Ref": "AuroraVPCPrivateSubnet1Subnet1FCBF118"
+          },
+          {
+            "Ref": "AuroraVPCPrivateSubnet2SubnetEFDCBB46"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/${serviceName}-cluster/Subnets/Default"
+      }
+    },
+    "serviceNameclusterSecurityGroup39A91843": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "RDS security group",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "VpcId": {
+          "Ref": "AuroraVPCABFB6588"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/${serviceName}-cluster/SecurityGroup/Resource"
+      }
+    },
+    "serviceNamecluster329A5DD7": {
+      "Type": "AWS::RDS::DBCluster",
+      "Properties": {
+        "Engine": "aurora-postgresql",
+        "DatabaseName": "Podcast",
+        "DBClusterParameterGroupName": "default.aurora-postgresql10",
+        "DBSubnetGroupName": {
+          "Ref": "serviceNameclusterSubnets6E049CEB"
+        },
+        "EngineMode": "serverless",
+        "MasterUsername": {
+          "Fn::Join": [
+            "",
+            [
+              "{{resolve:secretsmanager:",
+              {
+                "Ref": "DBCredentialsSecretAFB45EA2"
+              },
+              ":SecretString:username::}}"
+            ]
+          ]
+        },
+        "MasterUserPassword": {
+          "Fn::Join": [
+            "",
+            [
+              "{{resolve:secretsmanager:",
+              {
+                "Ref": "DBCredentialsSecretAFB45EA2"
+              },
+              ":SecretString:password::}}"
+            ]
+          ]
+        },
+        "ScalingConfiguration": {
+          "AutoPause": true,
+          "MaxCapacity": 32,
+          "MinCapacity": 8
+        },
+        "StorageEncrypted": true,
+        "VpcSecurityGroupIds": [
+          {
+            "Fn::GetAtt": [
+              "serviceNameclusterSecurityGroup39A91843",
+              "GroupId"
+            ]
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Snapshot",
+      "DeletionPolicy": "Snapshot",
+      "Metadata": {
+        "aws:cdk:path": "PTStack/${serviceName}-cluster/Resource"
+      }
+    },
+    "DBResourceArnABC705AC": {
+      "Type": "AWS::SSM::Parameter",
+      "Properties": {
+        "Type": "String",
+        "Value": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":rds:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":cluster:",
+              {
+                "Ref": "serviceNamecluster329A5DD7"
+              }
+            ]
+          ]
+        },
+        "Name": "podcast-translator-dev-db-cluster-arn"
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/DBResourceArn/Resource"
+      }
+    },
+    "DBEndpointBF8E0CEA": {
+      "Type": "AWS::SSM::Parameter",
+      "Properties": {
+        "Type": "String",
+        "Value": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Fn::GetAtt": [
+                  "serviceNamecluster329A5DD7",
+                  "Endpoint.Address"
+                ]
+              },
+              ":-1.8881545897088344e+289"
+            ]
+          ]
+        },
+        "Name": "podcast-translator-dev-db-cluster-endpoint"
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/DBEndpoint/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAAE2WRwW4CIRCGn6V3xFLbnqvbxnhpNtp4R3ZqcXfBzIDGEN69IKvbpCe++flnmGEED0LM+OPDmzzTRDXtVFkEHjZOqpZV1pBDrxyrvs0ayHpUkDldNNppayIT4uVvesgQaMbDwqsWrpmFItOy56G2nVaXLBeKjEAhOOqlkXvA9PY1zo5CyUF9bgm12dcSZQ8O8FrhFkQG6omH7VFleVtXrPa7VH3jd2Yodae19Q6+5K6DUR+1OZFVWubZ7uYMH6s6H5/SLaWDs7ywGvUp4Vh4ZVIniW+G0skQzV360Z8ejGNpKo/aXZZo/XEYcxQiw4byJ+AJsAOiqvOU5y0P3ZPeF/+EwRkjK0sc13fbXUx3xjbADzQ9iWcuXtPuDqT1BL1xuge+Lucvpo6V4xgCAAA="
+      },
+      "Metadata": {
+        "aws:cdk:path": "PTStack/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "af-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
